@@ -98,17 +98,17 @@ export default function Form() {
         <Button
           variant="contained"
           color="secondary"
-          // onClick={() => {
-          //   axios
-          //     .put(`${baseURL}/1`,)
-          //     .then((res) => {
-          //       setPost(res.data);
-          //       console.log(res.data);
-          //     })
-          //     .catch((error) => {
-          //       console.log(error);
-          //     });
-          // }}
+          onClick={() => {
+            axios
+              .put(`${baseURL}/1`,)
+              .then((res) => {
+                setPost(res.data);
+                console.log(res.data);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }}
         >
           Submit
         </Button>
