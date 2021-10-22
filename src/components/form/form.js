@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import "./form.css";
+import MyTable from "../table/table";
 const baseURL = "https://jsonplaceholder.typicode.com/users";
 
 export default function Form() {
@@ -13,7 +14,7 @@ export default function Form() {
 
   useEffect(() => {
     axios
-      .get(`${baseURL}/1`)
+      .get(`${baseURL}`)
       .then((res) => {
         console.log(res.data);
         setPost(res.data);
@@ -97,20 +98,23 @@ export default function Form() {
         <Button
           variant="contained"
           color="secondary"
-          // onClick={() => {
-          //   axios
-          //     .put(`${baseURL}/1`,)
-          //     .then((res) => {
-          //       setPost(res.data);
-          //       console.log(res.data);
-          //     })
-          //     .catch((error) => {
-          //       console.log(error);
-          //     });
-          // }}
+          onClick={() => {
+            axios
+              .put(`${baseURL}/1`,)
+              .then((res) => {
+                setPost(res.data);
+                console.log(res.data);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }}
         >
           Submit
         </Button>
+        <br/>
+        <br/>
+        <MyTable data={post}/>
       </>
     );
   }
