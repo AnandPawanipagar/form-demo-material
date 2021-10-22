@@ -1,5 +1,7 @@
 html {
-  margin: 15px;
+  margin: 25px;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 html .marginBottom {
@@ -8,6 +10,5 @@ html .marginBottom {
 
 html .marginTextfield {
   margin-bottom: 15px;
-  margin-right: 15px;
 }
 /*# sourceMappingURL=form.css.map */
