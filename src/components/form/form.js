@@ -7,7 +7,7 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import "./form.css";
 import MyTable from "../table/table";
-const baseURL = "https://jsonplaceholder.typicode.com/users";
+const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 export default function Form() {
   const [post, setPost] = useState(null);
@@ -40,7 +40,7 @@ export default function Form() {
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="Name"
+              label="User Id"
               variant="outlined"
               color="secondary"
               fullWidth
@@ -53,7 +53,7 @@ export default function Form() {
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="Contact number"
+              label="Id"
               variant="outlined"
               color="secondary"
               fullWidth
@@ -68,7 +68,7 @@ export default function Form() {
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="User Id"
+              label="Title"
               variant="outlined"
               color="secondary"
               fullWidth
@@ -82,7 +82,7 @@ export default function Form() {
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="Email"
+              label="Body"
               variant="outlined"
               color="secondary"
               fullWidth

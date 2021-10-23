@@ -3,27 +3,26 @@ export default function MyTable({data}){
     return <>
     <table>
         <tr>
+            <td>userId</td>
             <td>id</td>
-            <td>name</td>
-            <td>username</td>
-            <td>email</td>
-            <td>phone</td>
-            <td>website</td>
+            <td>title</td>
+            <td>body</td>
         </tr>
-        {data && data.length>0?<>
+        {data && data.length>0?
+        <>
         {data.map((data)=>{
             return <>
             <tr>
+                <td>{data.userId}</td>
                 <td>{data.id}</td>
-                <td>{data.name}</td>
-                <td>{data.username}</td>
-                <td>{data.email}</td>
-                <td>{data.phone}</td>
-                <td>{data.website}</td>
+                <td>{data.title}</td>
+                <td>{data.body}</td>
             </tr>
             </>
         })}
-        </>:<></>}
+        </>
+        :
+        <></>}
     </table>
     </>
 }
