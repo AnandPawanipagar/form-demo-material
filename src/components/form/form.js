@@ -11,7 +11,10 @@ const baseURL = "https://jsonplaceholder.typicode.com/users";
 
 export default function Form() {
   const [post, setPost] = useState(null);
-
+  const [userId,setUserId]=useState(null);
+  const [id,setId]=useState(null);
+  const [title,setTitle]=useState(null);
+  const [body,setBody]=useState(null);
   useEffect(() => {
     axios
       .get(`${baseURL}`)
@@ -43,10 +46,7 @@ export default function Form() {
               fullWidth
               required
               onChange={(e) => {
-                console.log(e.target.value);
-                post.name = e.target.value;
-                setPost({ ...post });
-                console.log(post);
+                  
               }}
             ></TextField>
           </Grid>
