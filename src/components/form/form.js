@@ -11,16 +11,17 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 export default function Form() {
   const [post, setPost] = useState(null);
-  const [userId,setUserId]=useState(null);
-  const [id,setId]=useState(null);
-  const [title,setTitle]=useState(null);
-  const [body,setBody]=useState(null);
+  const [name, setName] = useState(null);
+  // const [userId, setUserId] = useState(null);
+  const [id, setId] = useState(null);
+  // const [title, setTitle] = useState(null);
+  // const [body, setBody] = useState(null);
   useEffect(() => {
     axios
-      .get(`${baseURL}`)
+      .get(`http://localhost:9000`)
       .then((res) => {
-        console.log(res.data);
-        setPost(res.data);
+        console.log(res.data.data);
+        setPost(res.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -40,32 +41,30 @@ export default function Form() {
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="User Id"
+              label="id"
               variant="outlined"
               color="secondary"
               fullWidth
               required
               onChange={(e) => {
-                  
+                setId(e.target.value);
               }}
             ></TextField>
           </Grid>
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="Id"
+              label="name"
               variant="outlined"
               color="secondary"
               fullWidth
               required
               onChange={(e) => {
-                post.phone = e.target.value;
-                setPost({ ...post });
-                console.log(post);
+                setName(e.target.value);
               }}
             ></TextField>
           </Grid>
-          <Grid item sm={6}>
+          {/* <Grid item sm={6}>
             <TextField
               className="marginTextfield"
               label="Title"
@@ -73,13 +72,11 @@ export default function Form() {
               color="secondary"
               fullWidth
               onChange={(e) => {
-                post.id = e.target.value;
-                setPost({ ...post });
-                console.log(post);
+                setTitle(e.target.value);
               }}
             ></TextField>
-          </Grid>
-          <Grid item sm={6}>
+          </Grid> */}
+          {/* <Grid item sm={6}>
             <TextField
               className="marginTextfield"
               label="Body"
@@ -88,21 +85,23 @@ export default function Form() {
               fullWidth
               required
               onChange={(e) => {
-                post.email = e.target.value;
-                setPost({ ...post });
-                console.log(post);
+                setBody(e.target.value);
               }}
             ></TextField>
-          </Grid>
+          </Grid> */}
         </Grid>
         <Button
           variant="contained"
           color="secondary"
           onClick={() => {
+            const body={
+              id,
+              name
+            }
             axios
-              .put(`${baseURL}/1`,)
+              .put(`http://localhost:9000`,body)
               .then((res) => {
-                setPost(res.data);
+                // setPost(res.data);
                 console.log(res.data);
               })
               .catch((error) => {
@@ -112,9 +111,9 @@ export default function Form() {
         >
           Submit
         </Button>
-        <br/>
-        <br/>
-        <MyTable data={post}/>
+        <br />
+        <br />
+        <MyTable data={post} />
       </>
     );
   }
