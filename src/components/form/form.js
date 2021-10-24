@@ -12,10 +12,7 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
 export default function Form() {
   const [post, setPost] = useState(null);
   const [name, setName] = useState(null);
-  // const [userId, setUserId] = useState(null);
   const [id, setId] = useState(null);
-  // const [title, setTitle] = useState(null);
-  // const [body, setBody] = useState(null);
   useEffect(() => {
     axios
       .get(`http://localhost:9000`)
@@ -64,42 +61,17 @@ export default function Form() {
               }}
             ></TextField>
           </Grid>
-          {/* <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="Title"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              onChange={(e) => {
-                setTitle(e.target.value);
-              }}
-            ></TextField>
-          </Grid> */}
-          {/* <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="Body"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              required
-              onChange={(e) => {
-                setBody(e.target.value);
-              }}
-            ></TextField>
-          </Grid> */}
         </Grid>
         <Button
           variant="contained"
           color="secondary"
           onClick={() => {
-            const body={
+            const body = {
               id,
-              name
-            }
+              name,
+            };
             axios
-              .put(`http://localhost:9000`,body)
+              .put(`http://localhost:9000`, body)
               .then((res) => {
                 // setPost(res.data);
                 console.log(res.data);
