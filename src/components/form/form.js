@@ -9,21 +9,6 @@ import "./form.css";
 const baseURL = "https://jsonplaceholder.typicode.com/users";
 
 export default function Form() {
-  const [post, setPost] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(`${baseURL}/1`)
-      .then((res) => {
-        console.log(res.data);
-        setPost(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-  if (!post) return " ";
-  else {
     return (
       <>
         <Grid container spacing={1}>
@@ -36,82 +21,33 @@ export default function Form() {
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
+              label="Id"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required
+            ></TextField>
+          </Grid>
+          <Grid item sm={6}>
+            <TextField
+              className="marginTextfield"
               label="Name"
               variant="outlined"
               color="secondary"
               fullWidth
               required
-              onChange={(e) => {
-                console.log(e.target.value);
-                post.name = e.target.value;
-                setPost({ ...post });
-                console.log(post);
-              }}
+              
             ></TextField>
-          </Grid>
-          <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="Contact number"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              required
-              onChange={(e) => {
-                post.phone = e.target.value;
-                setPost({ ...post });
-                console.log(post);
-              }}
-            ></TextField>
-          </Grid>
-          <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="User Id"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              onChange={(e) => {
-                post.id = e.target.value;
-                setPost({ ...post });
-                console.log(post);
-              }}
-            ></TextField>
-          </Grid>
-          <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="Email"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              required
-              onChange={(e) => {
-                post.email = e.target.value;
-                setPost({ ...post });
-                console.log(post);
-              }}
-            ></TextField>
-          </Grid>
+          </Grid>  
         </Grid>
         <Button
           variant="contained"
           color="secondary"
-          // onClick={() => {
-          //   axios
-          //     .put(`${baseURL}/1`,)
-          //     .then((res) => {
-          //       setPost(res.data);
-          //       console.log(res.data);
-          //     })
-          //     .catch((error) => {
-          //       console.log(error);
-          //     });
-          // }}
+        
         >
           Submit
         </Button>
       </>
     );
   }
-}
+
