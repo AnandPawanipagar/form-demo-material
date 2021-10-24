@@ -8,74 +8,77 @@ import Button from "@material-ui/core/Button";
 import "./form.css";
 
 export default function Form() {
-  const [data, setData] = useState(null);
-  const [id, setId] = useState(null);
+ 
   const [name, setName] = useState(null);
+  const [id, setId] = useState(null);
   useEffect(() => {
     axios
       .get("http://localhost:9000")
       .then((res) => {
         console.log(res.data.data);
-        setData(res.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  if (!data) {
-    return " ";
-  } else {
-    return (
-      <>
-        <Grid container spacing={1}>
-          <Grid item xs={12} className="marginBottom">
-            <Typography variant="h4" color="initial">
-              Registration Form
-            </Typography>
-          </Grid>
 
-          <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="Id"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              required
-              onChange={(e) => {
-                setId(e.target.value);
-              }}
-            ></TextField>
-          </Grid>
-          <Grid item sm={6}>
-            <TextField
-              className="marginTextfield"
-              label="Name"
-              variant="outlined"
-              color="secondary"
-              fullWidth
-              required
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            ></TextField>
-          </Grid>
+  console.log(id);
+  console.log(name);
+  return (
+    <>
+      <Grid container spacing={1}>
+        <Grid item xs={12} className="marginBottom">
+          <Typography variant="h4" color="initial">
+            Registration Form
+          </Typography>
         </Grid>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={axios
-            .put(`http://localhost:9000`, { id: id, name: name })
-            .then((res) => {
-              console.log(res.data.data);
+        {/* <div>{id}</div> */}
+        <Grid item sm={6}>
+          <TextField
+            className="marginTextfield"
+            label="Id"
+            variant="outlined"
+            color="secondary"
+            fullWidth
+            required
+            onChange={(e) => {
+              setId(e.target.value);
+            }}
+          ></TextField>
+        </Grid>
+        <Grid item sm={6}>
+          <TextField
+            className="marginTextfield"
+            label="Name"
+            variant="outlined"
+            color="secondary"
+            fullWidth
+            required
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></TextField>
+        </Grid>
+      </Grid>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => {
+          axios
+            .put("http://localhost:9000", {
+              id,
+              name,
             })
-            .catch((error) => {
-              console.log(error);
-            })}
-        >
-          Update
-        </Button>
-      </>
-    );
-  }
+            .then((res) => {
+              console.log(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }}
+      >
+        Update
+      </Button>
+    </>
+  );
 }
