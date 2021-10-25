@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/styles";
 import TextField from "@material-ui/core/TextField";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
-import "./form.css";
+import "./Form.css";
 import MyTable from "../table/table";
 const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -28,10 +28,11 @@ export default function Form() {
   else {
     return (
       <>
+      
         <Grid container spacing={1}>
           <Grid item xs={12} className="marginBottom">
             <Typography variant="h4" color="initial">
-              Registration Form
+              Registration Form 
             </Typography>
           </Grid>
 
