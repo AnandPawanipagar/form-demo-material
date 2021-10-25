@@ -9,8 +9,8 @@ import "./Form.css";
 import MyTable from "../table/Table";
 const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
- const Form=()=> {
-  const [post, setPost] = useState(null);
+const Form = () => {
+  const [data, setData] = useState(null);
   const [name, setName] = useState(null);
   const [id, setId] = useState(null);
   useEffect(() => {
@@ -18,21 +18,20 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
       .get(`http://localhost:9000`)
       .then((res) => {
         console.log(res.data.data);
-        setPost(res.data.data);
+        setData(res.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  if (!post) return " ";
+  if (!data) return " ";
   else {
     return (
       <>
-      
         <Grid container spacing={1}>
           <Grid item xs={12} className="marginBottom">
             <Typography variant="h4" color="initial">
-              Registration Form 
+              Registration Form
             </Typography>
           </Grid>
 
@@ -84,11 +83,12 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
         >
           Update
         </Button>
+
         <br />
         <br />
-        <MyTable data={post} />
+        <MyTable data={data} />
       </>
     );
   }
-}
+};
 export default Form;
