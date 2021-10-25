@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import "./Form.css";
-import MyTable from "../table/table";
+import MyTable from "../table/Table";
 const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 export default function Form() {
