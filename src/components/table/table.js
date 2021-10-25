@@ -1,10 +1,10 @@
-export default function MyTable({data}){
+const MyTable=({data})=>{
     console.log(data,"<- table data");
     return <>
     <table>
         <tr>
-            <td>id</td>
-            <td>name</td>
+            <td>Id</td>
+            <td>Name</td>
             {/* <td>title</td> */}
             {/* <td>body</td> */}
         </tr>
@@ -26,3 +26,4 @@ export default function MyTable({data}){
     </table>
     </>
 }
+export default MyTable

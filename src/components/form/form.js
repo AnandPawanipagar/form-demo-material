@@ -9,7 +9,7 @@ import "./Form.css";
 import MyTable from "../table/Table";
 const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
-export default function Form() {
+ const Form=()=> {
   const [post, setPost] = useState(null);
   const [name, setName] = useState(null);
   const [id, setId] = useState(null);
@@ -91,3 +91,4 @@ export default function Form() {
     );
   }
 }
+export default Form;
