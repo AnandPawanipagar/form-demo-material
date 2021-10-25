@@ -39,7 +39,7 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="id"
+              label="Id"
               variant="outlined"
               color="secondary"
               fullWidth
@@ -52,7 +52,7 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
           <Grid item sm={6}>
             <TextField
               className="marginTextfield"
-              label="name"
+              label="Name"
               variant="outlined"
               color="secondary"
               fullWidth
@@ -82,7 +82,7 @@ const baseURL = "https://jsonplaceholder.typicode.com/posts";
               });
           }}
         >
-          Submit
+          Update
         </Button>
         <br />
         <br />
