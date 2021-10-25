@@ -1,5 +1,4 @@
 const MyTable = ({ data }) => {
-  console.log(data, "<- table data");
   return (
     <>
       <table>
@@ -7,7 +6,7 @@ const MyTable = ({ data }) => {
           <td>Id</td>
           <td>Name</td>
         </tr>
-        { data.length > 0 ? (
+        {data.length > 0 ? (
           <>
             {data.map((data) => {
               return (

@@ -26,6 +26,7 @@ const Form = () => {
   }, []);
   if (!data) return " ";
   else {
+   
     return (
       <>
         <Grid container spacing={1}>
@@ -45,6 +46,7 @@ const Form = () => {
               required
               onChange={(e) => {
                 setId(e.target.value);
+                // console.log(id)
               }}
             ></TextField>
           </Grid>
@@ -58,6 +60,7 @@ const Form = () => {
               required
               onChange={(e) => {
                 setName(e.target.value);
+                // console.log(name)
               }}
             ></TextField>
           </Grid>
