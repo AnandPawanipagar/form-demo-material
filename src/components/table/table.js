@@ -1,4 +1,5 @@
-const MyTable = ({ data }) => {
+const Table = ({ data }) => {
+  console.log(data.length)
   return (
     <>
       <table>
@@ -20,10 +21,10 @@ const MyTable = ({ data }) => {
             })}
           </>
         ) : (
-          <></>
+          <><h1>hello</h1></>
         )}
       </table>
     </>
   );
 };
-export default MyTable;
+export default Table;

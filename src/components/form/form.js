@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import "./Form.css";
-import MyTable from "../table/Table";
-const baseURL = "https://jsonplaceholder.typicode.com/posts";
+import Table from "../table/Table";
+// const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 const Form = () => {
   const [data, setData] = useState(null);
@@ -32,7 +32,7 @@ const Form = () => {
         <Grid container spacing={1}>
           <Grid item xs={12} className="marginBottom">
             <Typography variant="h4" color="initial">
-              Registration Form
+              Registration Form 
             </Typography>
           </Grid>
 
@@ -46,7 +46,7 @@ const Form = () => {
               required
               onChange={(e) => {
                 setId(e.target.value);
-                // console.log(id)
+                
               }}
             ></TextField>
           </Grid>
@@ -60,7 +60,7 @@ const Form = () => {
               required
               onChange={(e) => {
                 setName(e.target.value);
-                // console.log(name)
+                
               }}
             ></TextField>
           </Grid>
@@ -76,7 +76,7 @@ const Form = () => {
             axios
               .put(`http://localhost:9000`, body)
               .then((res) => {
-                // setPost(res.data);
+                setData(res.data);
                 console.log(res.data);
               })
               .catch((error) => {
@@ -89,7 +89,7 @@ const Form = () => {
 
         <br />
         <br />
-        <MyTable data={data} />
+        <Table data={data} />
       </>
     );
   }
